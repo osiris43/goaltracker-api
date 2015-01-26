@@ -1,0 +1,24 @@
+{
+  "name": "lumbar-loader",
+  "version": "2.1.5",
+  "main": [
+    "lumbar-loader.js",
+    "lumbar-loader-standard.js"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "components",
+    "test"
+  ],
+  "homepage": "https://github.com/walmartlabs/lumbar-loader",
+  "_release": "2.1.5",
+  "_resolution": {
+    "type": "version",
+    "tag": "v2.1.5",
+    "commit": "d53046f548b190e93b463ea63979d237ec13b621"
+  },
+  "_source": "git://github.com/walmartlabs/lumbar-loader.git",
+  "_target": "2.x.x",
+  "_originalSource": "lumbar-loader"
+}

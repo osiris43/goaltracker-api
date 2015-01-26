@@ -1,0 +1,21 @@
+{
+  "lib": {
+    "name": "bower-rails generated lib assets",
+    "dependencies": {
+      "zepto": "1.x.x",
+      "jquery": "1.9.0",
+      "underscore": "1.x.x",
+      "handlebars": "2.x.x",
+      "backbone": "1.0.0",
+      "thorax": "walmartlabs/thorax#3.x.x",
+      "lumbar-loader": "2.x.x",
+      "bootstrap": "components/bootstrap#3.x.x"
+    }
+  },
+  "vendor": {
+    "name": "bower-rails generated vendor assets",
+    "dependencies": {
+      // "three.js"    : "https://raw.github.com/mrdoob/three.js/master/build/three.js"
+    }
+  }
+}

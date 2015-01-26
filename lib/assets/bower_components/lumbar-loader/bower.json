@@ -1,0 +1,14 @@
+{
+  "name": "lumbar-loader",
+  "version": "2.1.5",
+  "main": [
+    "lumbar-loader.js",
+    "lumbar-loader-standard.js"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "components",
+    "test"
+  ]
+}
