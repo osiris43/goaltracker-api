@@ -33,7 +33,7 @@ group :doc do
   gem 'sdoc', require: false
 end
 
-group :test do
+group :development, :test do
   gem 'rspec-rails'
 end
 # Use ActiveModel has_secure_password
