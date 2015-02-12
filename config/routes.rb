@@ -1,9 +1,13 @@
 GoalTracker::Application.routes.draw do
-  get "goal_units/index"
-  get "goal_units/new"
-  get "goal_units/create"
-  get "goal_units/update"
-  get "goal_units/edit"
+  resources :goals
+
+  resources :activities
+
+  resources :units
+
+  resources :timeframes
+
+  resources :goal_units 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

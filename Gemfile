@@ -1,11 +1,14 @@
 source 'http://rubygems.org'
 
+ruby '2.2.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.0.1'
+gem 'rails', '4.2.0'
 
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 gem "bower-rails"
+gem 'byebug', '~> 3.5.1'
+gem "rack-cors", :require => "rack/cors"
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'

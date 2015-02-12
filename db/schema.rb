@@ -11,11 +11,42 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150126190024) do
+ActiveRecord::Schema.define(version: 20150205123745) do
+
+  create_table "activities", force: true do |t|
+    t.string   "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "goal_units", force: true do |t|
     t.string   "description"
     t.integer  "value"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "goals", force: true do |t|
+    t.integer  "activity_id"
+    t.integer  "unit_id"
+    t.integer  "timeframe_id"
+    t.integer  "measurement"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "goals", ["activity_id"], name: "index_goals_on_activity_id"
+  add_index "goals", ["timeframe_id"], name: "index_goals_on_timeframe_id"
+  add_index "goals", ["unit_id"], name: "index_goals_on_unit_id"
+
+  create_table "timeframes", force: true do |t|
+    t.string   "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "units", force: true do |t|
+    t.string   "description"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
