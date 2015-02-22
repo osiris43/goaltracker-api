@@ -4,7 +4,9 @@ class GoalsController < ApplicationController
   # GET /goals
   # GET /goals.json
   def index
-    @goals = Goal.all
+    goals = Goal.all
+    
+    render :json => goals.as_json, :status => 201
   end
 
   # GET /goals/1
@@ -24,12 +26,17 @@ class GoalsController < ApplicationController
   # POST /goals
   # POST /goals.json
   def create
-    @goal = Goal.new(goal_params)
-
+    puts goal_params
+    m, u = params[:measurement].split(' ')
+    @activity = Activity.find_or_create_by(description: params[:activity])
+    @timeframe = Timeframe.find_or_create_by(description: params[:timeframe])
+    @unit = Unit.find_or_create_by(description: u)
+    @goal = Goal.new(activity: @activity, timeframe: @timeframe, unit: @unit, measurement: m)
+    
     respond_to do |format|
       if @goal.save
         format.html { redirect_to @goal, notice: 'Goal was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @goal }
+        format.json { render status: :created, json: @goal.as_json }
       else
         format.html { render action: 'new' }
         format.json { render json: @goal.errors, status: :unprocessable_entity }
@@ -69,6 +76,6 @@ class GoalsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def goal_params
-      params.require(:goal).permit(:activity_id, :unit_id, :timeframe_id, :measurement)
+      params.permit(:activity, :measurement, :timeframe)
     end
 end
