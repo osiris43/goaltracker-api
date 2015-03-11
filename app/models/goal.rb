@@ -5,6 +5,7 @@ class Goal < ActiveRecord::Base
 
   def as_json(options={})
     {
+      :id => id,
       :activity => activity.description,
       :measurement => "#{measurement} #{unit.description}",
       :timeframe => timeframe.description
