@@ -11,22 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150205123745) do
+ActiveRecord::Schema.define(version: 20150319021420) do
 
-  create_table "activities", force: true do |t|
-    t.string   "description"
+  create_table "activities", force: :cascade do |t|
+    t.string   "description", limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "goal_units", force: true do |t|
-    t.string   "description"
+  create_table "goal_units", force: :cascade do |t|
+    t.string   "description", limit: 255
     t.integer  "value"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "goals", force: true do |t|
+  create_table "goals", force: :cascade do |t|
     t.integer  "activity_id"
     t.integer  "unit_id"
     t.integer  "timeframe_id"
@@ -39,14 +39,32 @@ ActiveRecord::Schema.define(version: 20150205123745) do
   add_index "goals", ["timeframe_id"], name: "index_goals_on_timeframe_id"
   add_index "goals", ["unit_id"], name: "index_goals_on_unit_id"
 
-  create_table "timeframes", force: true do |t|
-    t.string   "description"
+  create_table "progress_events", force: :cascade do |t|
+    t.integer  "number"
+    t.integer  "goal_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "progress_events", ["goal_id"], name: "index_progress_events_on_goal_id"
+
+  create_table "progresses", force: :cascade do |t|
+    t.integer  "progress"
+    t.integer  "goal_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "progresses", ["goal_id"], name: "index_progresses_on_goal_id"
+
+  create_table "timeframes", force: :cascade do |t|
+    t.string   "description", limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "units", force: true do |t|
-    t.string   "description"
+  create_table "units", force: :cascade do |t|
+    t.string   "description", limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
   end

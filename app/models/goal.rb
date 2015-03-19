@@ -2,6 +2,7 @@ class Goal < ActiveRecord::Base
   belongs_to :activity
   belongs_to :unit
   belongs_to :timeframe
+  has_many :progress_events
 
   def as_json(options={})
     {

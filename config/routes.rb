@@ -1,5 +1,6 @@
 GoalTracker::Application.routes.draw do
   resources :goals
+  resources :progress_events
 
   resources :activities
 
@@ -7,7 +8,7 @@ GoalTracker::Application.routes.draw do
 
   resources :timeframes
 
-  resources :goal_units 
+  resources :goal_units
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
